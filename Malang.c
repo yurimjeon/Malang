@@ -5,14 +5,41 @@ GtkWidget *vbox;
 GtkWidget *hbox;
 GtkWidget *label1,*label2,*label3;
 GtkWidget *hbox1, *hbox2, *hbox3, *hbox4;
-GtkWidget *button[16]; 
+GtkWidget *button[16];
 
-char buf[100];
+char buf[10];
 int numLevel = 0;
 int numHeart = 0;
+int question = 0;
+
+int timer_handler(gpointer data)//make question
+{
+	int min = 0;
+	int sec = 0;
+	int i=0;
+
+	for(i=0;i<5;i++)
+	{
+	question = rand() % 10;  //rand question ( 0~9)
+	buf[i]=question+'0';
+	buf[i+1] =' ';
+	i++;
+	}
+	gtk_label_set_text(GTK_LABEL(label2),buf);
+}
+
 
 int main(int argc, char *argv[])
 {
+	g_timeout_add(1000, timer_handler, 0); //1 seconed
+
+	srand(time(0));
+	//int i=0;
+	//for(i=0;i<3;i++)
+	//{
+	//question = rand() %16;
+	//buf[i]=question;
+	//}
 	gtk_init(&argc, &argv);
 
 	//window setup
