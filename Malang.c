@@ -11,6 +11,104 @@ char buf[10];
 int numLevel = 0;
 int numHeart = 0;
 int question = 0;
+int answer[100] = {0,};
+int ansidx = 0;
+
+void buttonClicked(GtkWidget* widget)
+{
+	int i = 0;
+	if (widget == button[0])
+	{
+		answer[ansidx] = 0;
+		ansidx++;
+	}
+	else if (widget == button[1])
+	{
+		answer[ansidx] = 1;
+		ansidx++;
+	}
+	else if (widget == button[2])
+	{
+		answer[ansidx] = 2;
+		ansidx++;
+	}
+	else if (widget == button[3])
+	{
+		answer[ansidx] = 3;
+		ansidx++;
+	}
+	else if (widget == button[4])
+	{
+		answer[ansidx] = 4;
+		ansidx++;
+	}
+	else if (widget == button[5])
+	{
+		answer[ansidx] = 5;
+		ansidx++;
+	}
+	else if (widget == button[6])
+	{
+		answer[ansidx] = 6;
+		ansidx++;
+	}
+	else if (widget == button[7])
+	{
+		answer[ansidx] = 7;
+		ansidx++;
+	}
+	else if (widget == button[8])
+	{
+		answer[ansidx] = 8;
+		ansidx++;
+	}
+	else if (widget == button[9])
+	{
+		answer[ansidx] = 9;
+		ansidx++;
+	}
+	else if (widget == button[10])
+	{
+		answer[ansidx] = 10;
+		ansidx++;
+	}
+	else if (widget == button[11])
+	{
+		answer[ansidx] = 11;
+		ansidx++;
+	}
+	else if (widget == button[12])
+	{
+		answer[ansidx] = 12;
+		ansidx++;
+	}
+	else if (widget == button[13])
+	{
+		answer[ansidx] = 13;
+		ansidx++;
+	}
+	else if (widget == button[14])
+	{
+		answer[ansidx] = 14;
+		ansidx++;
+	}
+	else if (widget == button[15])
+	{
+		answer[ansidx] = 15;
+		ansidx++;
+	}
+	else
+	{
+		printf("ERROR!\n"); 
+	}
+
+	printf("answer is ");
+	for(i=0; i<ansidx; i++)
+	{
+		printf("%d ",answer[i]);
+	}
+	printf("\n");
+}
 
 int timer_handler(gpointer data)//make question
 {
@@ -96,6 +194,11 @@ int main(int argc, char *argv[])
 	gtk_container_add(GTK_CONTAINER(hbox4), button[13]);
 	gtk_container_add(GTK_CONTAINER(hbox4), button[14]);
 	gtk_container_add(GTK_CONTAINER(hbox4), button[15]);
+
+	for (i = 0; i<16; i++)
+	{
+		g_signal_connect(G_OBJECT(button[i]), "clicked", G_CALLBACK(buttonClicked), NULL);
+	}
 
 	//add to vbox
 	vbox = gtk_vbox_new(TRUE,0);
