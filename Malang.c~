@@ -19,6 +19,7 @@ int questionFlag = 0;
 int answerFlag = 0;
 int waitingFlag = 0;
 int qidx = 0;
+char buf[100];
 
 
 void buttonClicked(GtkWidget* widget)
@@ -128,20 +129,16 @@ void buttonClicked(GtkWidget* widget)
 	printf("\n");
 	
 }
-
 void makeQuestion()
-{
-	int i;
+{	int i;
 	for(i=0; i<level; i++)
 	{
 		question[i] = rand() % 16;
 	}
-
 	waitingFlag =1;
 	printf("make complete\n");
 	return;
 }
-
 int confirmAnswer()
 {
 	int i;
@@ -154,11 +151,54 @@ int confirmAnswer()
 	}
 	return 1; //correct
 }
+int isCorrect()
+{
+         printf("correct!\n");
+         level++;
+         sprintf(buf,"Level: %d",level);
+         gtk_label_set_text(GTK_LABEL(label1),buf);
+         gtk_label_set_text(GTK_LABEL(label2),"[correct!] :D");
+         questionFlag = 0;
+         answerFlag = 0;
+         ansidx = 0;
+}
+int isWorong()
+{
+        printf("wrong!\n");
+        life--;
+        sprintf(buf,"Life: %d",life);
+        gtk_label_set_text(GTK_LABEL(label3),buf);
+        gtk_label_set_text(GTK_LABEL(label2),"[wrong!] T.T");
+        questionFlag = 0;
+        answerFlag = 0;
+        ansidx = 0;
 
+}
+int isSensitive(int a)
+{
+	if(a==1) // non sensitive
+	{
+		gtk_widget_set_sensitive(hbox1,FALSE);
+		gtk_widget_set_sensitive(hbox2,FALSE);
+		gtk_widget_set_sensitive(hbox3,FALSE);
+		gtk_widget_set_sensitive(hbox4,FALSE);
+	}
+	else
+	{
+		gtk_widget_set_sensitive(hbox1,TRUE);
+                gtk_widget_set_sensitive(hbox2,TRUE);
+                gtk_widget_set_sensitive(hbox3,TRUE);
+                gtk_widget_set_sensitive(hbox4,TRUE);
+	}
+
+}
 int timer_handler(gpointer data)//make question
 {
-	if(questionFlag ==0)
+	int i;
+	if(questionFlag ==0 && life>0)
 	{
+		gtk_label_set_text(GTK_LABEL(label2),"♥Malang♥");
+		isSensitive(1); // non sensitive button
 		if(waitingFlag == 0)
 		{
 			makeQuestion();
@@ -171,45 +211,53 @@ int timer_handler(gpointer data)//make question
 			gtk_button_set_label(GTK_BUTTON(button[question[qidx-1]]), " "); 
 		}
 		qidx++;
-		
+
 		if(qidx == level)
 		{
+		
+printf("question is ");
+        for(i=0; i<qidx; i++)
+        {
+                printf("%d ",question[i]);
+        }
+        printf("\n");
+
+		
+
 			printf("set\n");
 			questionFlag = 1;
 			waitingFlag = 0;
 			qidx = 0;
 		}
 	}
+	else if(life==0) // game over
+	{
+	gtk_label_set_text(GTK_LABEL(label2),"Game is Over");
+	isSensitive(1);
+	return 0;
+	}
 	else
 	{
+		isSensitive(0);//sensitive button
 		gtk_button_set_label(GTK_BUTTON(button[question[level-1]]), " ");
 		if(answerFlag == 1)
 		{	//confirm
 			if(confirmAnswer()==1) //correct
 			{
-				printf("correct!\n");
-				level++;
-				questionFlag = 0;
-				answerFlag = 0;
-				ansidx = 0;
+			isCorrect();
 			}
 			else //wrong
 			{
-				printf("wrong!\n");
-				life--;
-				questionFlag = 0;
-				answerFlag = 0;
-				ansidx = 0;
+			isWorong();
 			}
 		}
 		else
 		{
 			printf("waiting\n");
 		}
-	}
+ 	}
 }
-
-
+ 
 int main(int argc, char *argv[])
 {
 	g_timeout_add(1000, timer_handler, 0); //1 seconed
@@ -224,13 +272,13 @@ int main(int argc, char *argv[])
 	//label UI
 	hbox = gtk_hbox_new(TRUE,0);
 	gtk_widget_set_size_request(hbox,300,60);
-	label1 = gtk_label_new("Level");
+	label1 = gtk_label_new("Level: 1");
 	gtk_widget_set_size_request(label1,100,20);
 
-	label2 =gtk_label_new("Correct!");
+	label2 =gtk_label_new("♥Malang♥");
 	gtk_widget_set_size_request(label2,100,20);
 
-	label3 =gtk_label_new("Life");
+	label3 =gtk_label_new("Life: 3");
 	gtk_widget_set_size_request(label2,100,20);
 
 	gtk_container_add(GTK_CONTAINER(hbox),label1);
