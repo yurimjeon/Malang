@@ -1,4 +1,4 @@
-#include <func.h>
+#include <variables.h>
 
 void makeQuestion()
 {	int i;
