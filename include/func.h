@@ -1,13 +1,15 @@
 #ifndef _FUNC_H_
 #define _FUNC_H_
 
-void buttonClicked(GtkWidget* widget);
+#include <variables.h>
+
+//void buttonClicked(GtkWidget* widget);
 void makeQuestion();
-int confirmAnswer();
+/*int confirmAnswer();
 int isCorrect();
 int isWorong();
 int isSensitive(int a);
 int timer_handler(gpointer data);
-
+*/
 
 #endif

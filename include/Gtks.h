@@ -3,6 +3,7 @@
 
 
 #include <gtk/gtk.h>
+
 GtkWidget *window;
 GtkWidget *vbox;
 GtkWidget *hbox;
