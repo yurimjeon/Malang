@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 	gtk_widget_set_size_request(label1, 100, 20);
 	label2 = gtk_label_new("♥Malang♥");
 	gtk_widget_set_size_request(label2, 100, 20);
-	label3 = gtk_label_new("Life: 3");
+	label3 = gtk_label_new("Life: 5");
 	gtk_widget_set_size_request(label2, 100, 20);
 	gtk_container_add(GTK_CONTAINER(hbox), label1);
 	gtk_container_add(GTK_CONTAINER(hbox), label2);

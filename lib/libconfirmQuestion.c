@@ -29,6 +29,7 @@ int isCorrect()
 int isWorong()
 {
 	printf("wrong!\n");
+	
 	life--;
 	sprintf(buf, "Life: %d", life);
 	gtk_label_set_text(GTK_LABEL(label3), buf);
