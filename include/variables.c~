@@ -2,7 +2,7 @@
 #include <gtk/gtk.h>
 
 int level = 1;
-int life = 3;
+int life = 5;
 int question[100] = { 0, };
 int answer[100] = { 0, };
 int ansidx = 0;

@@ -11,6 +11,5 @@ void makeQuestion()
 	}
 	waitingFlag = 1;
 	printf("make complete\n");
-
 	return;
 }
