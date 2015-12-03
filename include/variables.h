@@ -6,6 +6,9 @@
 void buttonClicked(GtkWidget* widget);
 int isSensitive(int a);
 void makeQuestion();
+int confirmAnswer();
+int isCorrect();
+int isWorong();
 
 extern int level;
 extern int life;

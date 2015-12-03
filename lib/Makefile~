@@ -1,4 +1,4 @@
-TARGET = libmakeQuestion.a libsolveQuestion.a
+TARGET = libmakeQuestion.a libsolveQuestion.a libconfirmQuestion.a
 
 all : $(TARGET)
 
@@ -10,6 +10,12 @@ libmakeQuestion.o : libmakeQuestion.c
 libsolveQuestion.a : libsolveQuestion.o
 	ar rv libsolveQuestion.a libsolveQuestion.o ../include/variables.o
 libsolveQuestion.o : libsolveQuestion.c
-	gcc -c -o libsolveQuestion.o libsolveQuestion.c -I../include 
+	gcc -c -o libsolveQuestion.o libsolveQuestion.c -I../include `pkg-config --cflags --libs gtk+-2.0`
+
+libconfirmQuestion.a : libconfirmQuestion.o
+	ar rv libsolveQuestion.a libsolveQuestion.o ../include/variables.o
+libconfirmQuestion.o : libconfirmQuestion.c
+	gcc -c -o libconfirmQuestion.o libconfirmQuestion.c -I../include `pkg-config --cflags --libs gtk+-2.0`
+
 clean:
 	rm *.*~
