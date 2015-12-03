@@ -1,4 +1,4 @@
-Malang : Malang.o
+Malang : Malang.o ../include/variables.o
 	gcc -o Malang Malang.o ../include/variables.o \
 	-I../include \
 	-L../lib -lconfirmQuestion -lsolveQuestion -lmakeQuestion `pkg-config --cflags --libs gtk+-2.0`
