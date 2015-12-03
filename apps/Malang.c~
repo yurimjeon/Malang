@@ -107,18 +107,6 @@ void buttonClicked(GtkWidget* widget)
 	printf("\n");
 }
 
-void makeQuestion()
-{
-	int i;
-	for (i = 0; i < level; i++)
-	{
-		question[i] = rand() % 16;
-	}
-	waitingFlag = 1;
-	printf("make complete\n");
-	return;
-}
-
 int confirmAnswer()
 {
 	int i;

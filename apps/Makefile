@@ -1,6 +1,9 @@
-
 Malang : Malang.o
-	gcc -o Malang Malang.o ../include/variables.o -I../include `pkg-config --cflags --libs gtk+-2.0`
+	gcc -o Malang Malang.o ../include/variables.o \
+	-I../include \
+	-L../lib -lsolveQuestion -lmakeQuestion `pkg-config --cflags --libs gtk+-2.0`
+Malang.o : Malang.c
+	gcc -c -o Malang.o Malang.c -I../include `pkg-config --cflags --libs gtk+-2.0`
 
 clean :
-	rm *.c~
+	rm *.*~

@@ -1,6 +1,11 @@
 #ifndef _VARIABLES_H_
 #define _VARIABLES_H_
 
+#include <gtk/gtk.h>
+
+void buttonClicked(GtkWidget* widget);
+int isSensitive(int a);
+
 extern int level;
 extern int life;
 extern int question[100];

@@ -3,6 +3,10 @@
 
 #include <gtk/gtk.h>
 
+void buttonClicked(GtkWidget* widget);
+int isSensitive(int a);
+void makeQuestion();
+
 extern int level;
 extern int life;
 extern int question[100];
