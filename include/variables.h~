@@ -7,7 +7,7 @@ int isSensitive(int a);
 void makeQuestion();
 int confirmAnswer();
 int isCorrect();
-int isWrong();
+int isWorong();
 
 extern int level;
 extern int life;

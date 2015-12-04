@@ -55,7 +55,7 @@ int timer_handler(gpointer data)//make question
 			}
 			else //wrong
 			{
-				isWrong();
+				isWorong();
 			}
 		}
 		else

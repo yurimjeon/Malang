@@ -26,7 +26,7 @@ int isCorrect()
 	ansidx = 0;
 }
 
-int isWrong()
+int isWorong()
 {
 	printf("wrong!\n");
 	

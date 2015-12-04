@@ -101,7 +101,7 @@ void buttonClicked(GtkWidget* widget)
 
 	if (ansidx <= level && ansidx != 0)
 	{
-		printf("answer is ");
+		printf("Your answer is ");
 		for (i = 0; i < ansidx; i++)
 		{
 			printf("%d ", answer[i]);
