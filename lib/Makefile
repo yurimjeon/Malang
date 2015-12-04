@@ -1,4 +1,5 @@
 TARGET = libmakeQuestion.a libsolveQuestion.a libconfirmQuestion.a
+.PHony : all clean
 
 all : $(TARGET)
 

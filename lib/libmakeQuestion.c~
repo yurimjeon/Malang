@@ -10,7 +10,7 @@ void makeQuestion()
 		question[i] = rand() % 16;
 	}
 	waitingFlag = 1;
-	printf("Pay attention on the button!\n");
+	printf("make complete\n");
 
 	return;
 }

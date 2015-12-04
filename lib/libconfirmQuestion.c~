@@ -26,14 +26,23 @@ int isCorrect()
 	ansidx = 0;
 }
 
-int isWorong()
+int isWrong()
 {
+	int i;
 	printf("wrong!\n");
 	
 	life--;
 	sprintf(buf, "Life: %d", life);
 	gtk_label_set_text(GTK_LABEL(label3), buf);
 	gtk_label_set_text(GTK_LABEL(label2), "[wrong!] T.T");
+	printf("The correct answer was ");
+	for (i = 0; i < qidx; i++)
+	{
+		printf("%d ", question[i]);
+	}
+	printf("\n");
+	
+	qidx = 0;
 	questionFlag = 0;
 	answerFlag = 0;
 	ansidx = 0;

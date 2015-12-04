@@ -24,17 +24,8 @@ int timer_handler(gpointer data)//make question
 		qidx++;
 		if (qidx == level)
 		{
-
-			printf("Question is ");
-			for (i = 0; i < qidx; i++)
-			{
-				printf("%d ", question[i]);
-			}
-			printf("\n");
-
 			questionFlag = 1;
 			waitingFlag = 0;
-			qidx = 0;
 		}
 	}
 	else if (life == 0) // game over

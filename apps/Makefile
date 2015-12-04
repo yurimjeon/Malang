@@ -1,4 +1,5 @@
 LIB = ../lib
+.PHony : clean
 
 Malang : Malang.o ../include/variables.o $(LIB)/libconfirmQuestion.a $(LIB)/libsolveQuestion.a $(LIB)/libmakeQuestion.a
 	gcc -o Malang Malang.o ../include/variables.o \

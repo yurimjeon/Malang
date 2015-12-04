@@ -21,6 +21,7 @@ int isCorrect()
 	sprintf(buf, "Level: %d", level);
 	gtk_label_set_text(GTK_LABEL(label1), buf);
 	gtk_label_set_text(GTK_LABEL(label2), "[correct!] :D");
+	qidx = 0;	
 	questionFlag = 0;
 	answerFlag = 0;
 	ansidx = 0;
@@ -28,12 +29,21 @@ int isCorrect()
 
 int isWrong()
 {
+	int i;
 	printf("wrong!\n");
 	
 	life--;
 	sprintf(buf, "Life: %d", life);
 	gtk_label_set_text(GTK_LABEL(label3), buf);
 	gtk_label_set_text(GTK_LABEL(label2), "[wrong!] T.T");
+	printf("The correct answer was ");
+	for (i = 0; i < qidx; i++)
+	{
+		printf("%d ", question[i]);
+	}
+	printf("\n");
+	
+	qidx = 0;
 	questionFlag = 0;
 	answerFlag = 0;
 	ansidx = 0;
