@@ -26,7 +26,6 @@ int timer_handler(gpointer data)//make question
 		{
 			questionFlag = 1;
 			waitingFlag = 0;
-			qidx = 0;
 		}
 	}
 	else if (life == 0) // game over

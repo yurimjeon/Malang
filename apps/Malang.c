@@ -12,15 +12,16 @@ int timer_handler(gpointer data)//make question
 	{
 		gtk_label_set_text(GTK_LABEL(label2), "♥Malang♥");
 		isSensitive(1); // non sensitive button
+		if (qidx != 0)
+		{
+			gtk_button_set_label(GTK_BUTTON(button[question[qidx - 1]]), " ");
+		}
 		if (waitingFlag == 0)
 		{
 			makeQuestion();
 		}
 		gtk_button_set_label(GTK_BUTTON(button[question[qidx]]), "O");
-		if (qidx != 0)
-		{
-			gtk_button_set_label(GTK_BUTTON(button[question[qidx - 1]]), " ");
-		}
+		
 		qidx++;
 		if (qidx == level)
 		{
