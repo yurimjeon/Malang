@@ -19,4 +19,4 @@ libconfirmQuestion.o : libconfirmQuestion.c
 	gcc -c -o libconfirmQuestion.o libconfirmQuestion.c -I../include `pkg-config --cflags --libs gtk+-2.0`
 
 clean:
-	rm *.*~
+	rm *.*~ *.o *.a
